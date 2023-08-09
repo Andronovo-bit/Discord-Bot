@@ -35,6 +35,9 @@ class AndronovoBot(commands.Bot):
             description=description,
         )
         self.cog_dict = {
+            "Auto Commands": "cogs.autoCommands",
+            "Fun Commands": "cogs.funCommands",
+            "Other Commands": "cogs.otherCommands",
         }
 
     async def load_cogs(self) -> None:
