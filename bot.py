@@ -3,13 +3,15 @@ from termcolor import colored
 import discord
 from discord.ext import commands
 from pathlib import Path
-from utils.utils import load_env, get_token, get_prefix
 from utils.utils import configure_logging, get_logger
+from utils import loadEnviroments
 
-
-load_env()
-TOKEN = get_token()
-PREFIX = get_prefix()
+BOT_NAME = loadEnviroments.BOT_NAME
+PREFIX = loadEnviroments.PREFIX
+AUTHOR_NAME = loadEnviroments.AUTHOR_NAME
+TOKEN = loadEnviroments.TOKEN
+DEVELOPER_NAME = loadEnviroments.DEVELOPER_NAME
+CONTACT_EMAIL = loadEnviroments.CONTACT_EMAIL
 
 intents = discord.Intents.all()
 intents.members = True
@@ -20,11 +22,11 @@ logger = get_logger(__name__)
 
 # Define a class for the bot
 class AndronovoBot(commands.Bot):
-    """Andronovo - Open Source Discord Bot.
+    f"""{BOT_NAME} - Open Source Discord Bot.
 
-    Github: Andronovo-bit
-    Developer: Seyyid Yiğit
-    Contact Email: seyyid364@gmail.com
+    Github: {AUTHOR_NAME}
+    Developer: {DEVELOPER_NAME}
+    Contact Email: {CONTACT_EMAIL}
     """
 
     def __init__(self, prefix: str, intents: discord.Intents, description: str) -> None:
@@ -64,10 +66,10 @@ class AndronovoBot(commands.Bot):
 bot = AndronovoBot(
     prefix=PREFIX,
     intents=intents,
-    description="""Andronovo - Open Source Discord Bot.
-                    Github:-  Andronovo-bit
-                    Developer:  Seyyid Yiğit
-                    Contact Email:- seyyid364@gmail.com""",
+    description=f"""{BOT_NAME} - Open Source Discord Bot.
+                    Github:-  {AUTHOR_NAME}
+                    Developer:  {DEVELOPER_NAME}
+                    Contact Email:- {CONTACT_EMAIL}""",
 )
 
 # Run the bot using asyncio

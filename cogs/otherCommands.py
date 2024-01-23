@@ -1,11 +1,14 @@
 from discord.ext import commands
 import discord
+from bot import AUTHOR_NAME, BOT_NAME
 
-from utils.utils import create_embed
-from utils.utils import load_env, get_invite_link
+from utils.utils import create_embed, load_env
+import utils.loadEnviroments as loadEnviroments
+
 
 load_env()
-INVITE_URL = get_invite_link()
+INVITE_URL = loadEnviroments.INVITE_URL
+PROJECT_LINK = loadEnviroments.PROJECT_LINK
 
 class OtherCommands(commands.Cog, name="Other Commands for Users : Other Commands"):
     """
@@ -34,8 +37,8 @@ class OtherCommands(commands.Cog, name="Other Commands for Users : Other Command
         embed.add_field(name="Status", value={"online": "🟢", "idle": "🟡", "dnd": "🔴", "offline": "⚫"}[str(ctx.author.status)])
         embed.add_field(name="User", value=ctx.author.mention)
         embed.set_thumbnail(url="https://i.pinimg.com/originals/0c/67/5a/0c675a8e1061478d2b7b21b330093444.gif")
-        embed.set_footer(text="Andronovo | !help")
-        await ctx.send("Hi, I am AndronovoBot, a bot made by Andronovo-bit")
+        embed.set_footer(text=f"{BOT_NAME} | !help")
+        await ctx.send(f"Hi, I am {BOT_NAME} Bot, a bot made by {AUTHOR_NAME}")
         await ctx.send(embed=embed)
 
     @commands.command(aliases=["github", "source_code"], help="get the source code")
@@ -48,7 +51,7 @@ class OtherCommands(commands.Cog, name="Other Commands for Users : Other Command
             `source`: Get the bot source code
         """
         try:
-            source_url = "https://github.com/EvilMindDevs/hms-unity-plugin"
+            source_url = f"{PROJECT_LINK}"
             await ctx.send("The bot is powered by **Huawei Mobile Services**\n\n**Source Code**: {}\n\nDon't forget to star the repo if you like it!".format(source_url))
         except Exception as e:
             await ctx.send('```{} - {}```'.format(type(e).__name__, e))
