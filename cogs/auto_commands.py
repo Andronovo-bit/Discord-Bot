@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 import logging
-import utils.loadEnviroments as loadEnviroments
-from utils.messageHelper import MessageHelper
+import utils.load_enviroments as load_enviroments
+from utils.message_helper import MessageHelper
 from utils.utils import create_embed
 
 class AutoCommands(commands.Cog, name="Auto Commands"):
@@ -24,7 +24,7 @@ class AutoCommands(commands.Cog, name="Auto Commands"):
     FORUM_CHANNEL_IDS:list[int] = [] # List of channel IDs in the forum category
     ADMIN_ID = [460870992131260416] # List of Admin or Mod IDs
     DOCS_WEBSITE = 'https://evilminddevs.gitbook.io/hms-unity-plugin_/support/faq'
-    BOT_NAME = loadEnviroments.BOT_NAME
+    BOT_NAME = load_enviroments.BOT_NAME
    
     def __init__(self, bot):
         """ Init function for AutoCommands."""

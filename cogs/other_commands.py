@@ -3,12 +3,12 @@ import discord
 from bot import AUTHOR_NAME, BOT_NAME
 
 from utils.utils import create_embed, load_env
-import utils.loadEnviroments as loadEnviroments
+import utils.load_enviroments as load_enviroments
 
 
 load_env()
-INVITE_URL = loadEnviroments.INVITE_URL
-PROJECT_LINK = loadEnviroments.PROJECT_LINK
+INVITE_URL = load_enviroments.INVITE_URL
+PROJECT_LINK = load_enviroments.PROJECT_LINK
 
 class OtherCommands(commands.Cog, name="Other Commands for Users : Other Commands"):
     """

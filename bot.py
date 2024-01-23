@@ -4,14 +4,14 @@ import discord
 from discord.ext import commands
 from pathlib import Path
 from utils.utils import configure_logging, get_logger
-from utils import loadEnviroments
+from utils import load_enviroments
 
-BOT_NAME = loadEnviroments.BOT_NAME
-PREFIX = loadEnviroments.PREFIX
-AUTHOR_NAME = loadEnviroments.AUTHOR_NAME
-TOKEN = loadEnviroments.TOKEN
-DEVELOPER_NAME = loadEnviroments.DEVELOPER_NAME
-CONTACT_EMAIL = loadEnviroments.CONTACT_EMAIL
+BOT_NAME = load_enviroments.BOT_NAME
+PREFIX = load_enviroments.PREFIX
+AUTHOR_NAME = load_enviroments.AUTHOR_NAME
+TOKEN = load_enviroments.TOKEN
+DEVELOPER_NAME = load_enviroments.DEVELOPER_NAME
+CONTACT_EMAIL = load_enviroments.CONTACT_EMAIL
 
 intents = discord.Intents.all()
 intents.members = True
@@ -37,9 +37,9 @@ class AndronovoBot(commands.Bot):
             description=description,
         )
         self.cog_dict = {
-            "Auto Commands": "cogs.autoCommands",
-            "Fun Commands": "cogs.funCommands",
-            "Other Commands": "cogs.otherCommands",
+            "Auto Commands": "cogs.auto_commands",
+            "Fun Commands": "cogs.fun_commands",
+            "Other Commands": "cogs.other_commands",
         }
 
     async def load_cogs(self) -> None:
